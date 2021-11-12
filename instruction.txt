@@ -1,0 +1,9 @@
+(App service provider)
+ use Illuminate\Support\Facades\Schema;
+ Schema::defaultStringLength(191);
+ composer require laravel/ui
+ php artisan ui bootstrap --auth
+ php artisan ui vue --auth
+ npm install
+ npm vue i-loader
+ npm run dev
