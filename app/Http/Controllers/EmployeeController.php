@@ -77,13 +77,13 @@ class EmployeeController extends Controller
     }
     public function edit($id)
     {
-        $data = Employee::find($id);
+        $data = Employee::findOrFail($id);
         $companies = Company::all();
         return view('employee.edit', ['edit_employee' => $data, 'companies' => $companies]);
     }
     public function update(Request $request, $id)
     {
-        $employee = Employee::find($id);
+        $employee = Employee::findOrFail($id);
         $employee->name = $request->name;
         $employee->email = $request->email;
         $employee->phone_number = $request->phone_number;
@@ -113,7 +113,7 @@ class EmployeeController extends Controller
 
     function delete($id)
     {
-        $data = Employee::find($id);
+        $data = Employee::findOrFail($id);
         $data->delete();
         return redirect()->back()->with('status', 'Employee Deleted Successfully!');
     }
